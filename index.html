@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#102a43">
+<title>کتابخانه ویدئویی ریاضی هشتم</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap');
+:root{--navy:#102a43;--blue:#176b87;--teal:#2a9d8f;--gold:#f4b942;--ink:#243b53;--muted:#627d98;--paper:#f4f8fb;--line:#d9e4ec;--white:#fff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Vazirmatn,Tahoma,sans-serif;line-height:1.8}
+a{color:inherit;text-decoration:none}
+.hero{background:radial-gradient(circle at 15% 20%,#2a9d8f55,transparent 28%),linear-gradient(135deg,#102a43,#176b87);color:white;padding:38px 20px 34px}
+.wrap{max-width:1120px;margin:auto}
+.hero .eyebrow{color:#b9e7e2;font-size:.9rem;font-weight:600}
+h1{font-size:clamp(1.65rem,4vw,2.5rem);margin:8px 0 4px;line-height:1.5}
+.hero p{max-width:800px;color:#e2edf4;margin:8px 0 18px}
+.credits{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.pill{background:#ffffff18;border:1px solid #ffffff35;padding:7px 13px;border-radius:999px;font-size:.88rem}
+.toolbar{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:24px 0}
+.search{flex:1;min-width:220px;padding:13px 16px;border:1px solid var(--line);border-radius:14px;font:inherit;background:white;outline:none}
+.search:focus{border-color:var(--teal);box-shadow:0 0 0 3px #2a9d8f22}
+.btn{border:0;border-radius:12px;padding:11px 16px;font:inherit;font-weight:600;cursor:pointer;background:var(--navy);color:white}
+.btn.light{background:#e4eef4;color:var(--navy)}
+.quicklinks{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px}
+.quicklinks a{background:white;border:1px solid var(--line);border-radius:12px;padding:9px 13px;color:var(--blue);font-weight:600}
+.section-title{font-size:1.25rem;margin:22px 0 12px}
+.chapter{background:white;border:1px solid var(--line);border-radius:18px;margin:13px 0;overflow:hidden;box-shadow:0 5px 18px #102a4308}
+.chapter summary{list-style:none;cursor:pointer;padding:16px 18px;display:flex;align-items:center;gap:13px;font-weight:800;color:var(--navy)}
+.chapter summary::-webkit-details-marker{display:none}
+.chapter summary:after{content:"＋";margin-right:auto;color:var(--teal);font-size:1.25rem}
+.chapter[open] summary:after{content:"−"}
+.num{width:38px;height:38px;display:grid;place-items:center;border-radius:12px;background:#e5f4f1;color:#16796e;flex:none}
+.chapter-body{padding:0 18px 20px}
+.chapter-desc{color:var(--muted);font-size:.9rem;margin:0 0 13px}
+.lesson{border-top:1px solid #edf2f6;padding:14px 0}
+.lesson-head{font-weight:700;margin-bottom:10px;color:#243b53}
+.lesson-head small{font-weight:500;color:var(--muted)}
+.resources{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.resource{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:13px;padding:11px 12px;background:#fbfdff;transition:.18s}
+.resource:hover{border-color:var(--teal);background:#f0faf8;transform:translateY(-1px)}
+.resource .ico{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;flex:none}
+.activity .ico{background:#e4f4f1;color:#137b70}.exercise .ico{background:#fff3dc;color:#9a6500}
+.resource strong{display:block;font-size:.9rem}
+.resource small{display:block;color:var(--muted);font-size:.78rem}
+.resource .arrow{margin-right:auto;color:var(--blue);font-size:1.15rem}
+footer{margin-top:32px;background:#102a43;color:#e5eef5;padding:25px 20px;text-align:center}
+footer a{color:#8de0d2;text-decoration:underline;text-underline-offset:3px}
+.empty{display:none;text-align:center;color:var(--muted);padding:24px}
+
+.hint{color:var(--muted);font-size:.88rem}
+.home-heading{display:flex;align-items:center;justify-content:space-between;gap:15px;margin:24px 0 16px}
+.home-heading .section-title{margin:3px 0;font-size:1.55rem}
+.home-heading p{margin:3px 0;color:var(--muted);font-size:.9rem}
+.kicker{font-size:.78rem;font-weight:800;color:var(--teal);letter-spacing:.2px}
+.book-mark{width:64px;height:64px;display:grid;place-items:center;border-radius:20px;background:linear-gradient(145deg,#e1f4ef,#dcecf5);color:var(--blue);font-size:2rem;font-weight:800;box-shadow:inset 0 0 0 1px #cde5e1}
+.chapter-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.chapter-card{position:relative;text-align:right;border:1px solid var(--line);border-radius:19px;padding:18px;background:linear-gradient(145deg,#fff,#f8fbfd);cursor:pointer;min-height:155px;overflow:hidden;transition:.2s;box-shadow:0 6px 20px #102a4309}
+.chapter-card:before{content:"";position:absolute;left:-28px;bottom:-48px;width:115px;height:115px;border-radius:50%;background:var(--accent,#dff3ef);opacity:.75}
+.chapter-card:hover{transform:translateY(-4px);border-color:#8bcfc3;box-shadow:0 12px 28px #102a4315}
+.card-top{display:flex;align-items:center;justify-content:space-between;position:relative}
+.card-number{width:40px;height:40px;display:grid;place-items:center;border-radius:13px;background:var(--accent,#e4f4f1);color:var(--deep,var(--blue));font-weight:800;font-size:1.1rem}
+.card-arrow{color:var(--teal);font-size:1.2rem}
+.chapter-card h3{position:relative;margin:13px 0 2px;color:var(--navy);font-size:1rem}
+.chapter-card p{position:relative;margin:0;color:var(--muted);font-size:.8rem}
+.card-count{position:relative;display:inline-block;margin-top:9px;color:var(--blue);font-size:.75rem;font-weight:700}
+.back-btn{border:1px solid var(--line);background:white;color:var(--blue);padding:10px 15px;border-radius:12px;font:inherit;font-weight:700;cursor:pointer;margin:18px 0 14px}
+.back-btn:hover{background:#eaf5f4}
+.detail-banner{border-radius:20px;padding:22px 24px;margin-bottom:17px;color:white;background:linear-gradient(120deg,#102a43,#176b87);box-shadow:0 10px 25px #102a4322}
+.detail-banner .kicker{color:#9ce2d6}
+.detail-banner h2{font-size:1.45rem;margin:4px 0}
+.detail-banner p{margin:0;color:#e2edf4;font-size:.9rem}
+#detailLessons .lesson{background:white;border:1px solid var(--line);border-radius:16px;padding:16px;margin:12px 0;box-shadow:0 4px 16px #102a4308}
+#detailLessons .lesson-head{font-size:1rem;color:var(--navy);margin-bottom:12px}
+#detailLessons .resources{grid-template-columns:repeat(2,minmax(0,1fr))}
+#detailView[hidden]{display:none}
+@media(max-width:850px){.chapter-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+@media(max-width:650px){.resources,#detailLessons .resources{grid-template-columns:1fr}.chapter-grid{grid-template-columns:1fr 1fr;gap:9px}.chapter-card{padding:13px;min-height:142px}.chapter-card h3{font-size:.88rem}.chapter-card p{font-size:.74rem}.home-heading .section-title{font-size:1.2rem}.book-mark{width:52px;height:52px}.hero{padding-top:28px}.detail-banner{padding:18px}.detail-banner h2{font-size:1.2rem}}
+@media print{.toolbar,.quicklinks,.btn{display:none}.chapter{break-inside:avoid}.chapter:not([open]) .chapter-body{display:block}}
+</style>
+</head>
+<body>
+<header class="hero">
+ <div class="wrap">
+  <div class="eyebrow">گروه آموزشی ریاضی دوره اول متوسطه استان چهارمحال و بختیاری</div>
+  <h1>کتابخانه ویدئویی آموزش ریاضی پایه هشتم</h1>
+  <p>دسترسی منظم به فیلم‌های آموزشی فعالیت‌ها، کاردرکلاس‌ها و تمرین‌های کتاب ریاضی هشتم. فصل موردنظر را باز کنید و روی عنوان هر موضوع بزنید تا فیلم آموزشی آن در آپارات نمایش داده شود.</p>
+  <div class="credits">
+   <span class="pill">گردآوری و طراحی لینک‌ها: مهدی راه‌نما</span>
+   <span class="pill">تهیه فیلم‌ها: استاد محسن راجی</span>
+   <span class="pill">پایه هشتم</span>
+  </div>
+ </div>
+</header>
+<main class="wrap" style="padding:0 16px 30px">
+ <div class="toolbar">
+  <input id="search" class="search" type="search" placeholder="جست‌وجو در نام فصل، درس یا موضوع...">
+  <span class="hint">برای ورود به محتوای هر فصل، کارت آن را انتخاب کنید.</span>
+ </div>
+ <nav class="quicklinks" aria-label="پیوندهای تکمیلی">
+  <a href="https://shad.ir/Math_chb" target="_blank" rel="noopener">کانال شاد گروه ریاضی استان چهارمحال و بختیاری</a>
+  <a href="https://www.rajimath.com" target="_blank" rel="noopener">سایت استاد محسن راجی</a>
+ </nav>
+ <section id="homeView">
+  <div class="home-heading"><div><span class="kicker">نقشه راه یادگیری</span><h2 class="section-title">فصل‌های کتاب ریاضی هشتم</h2><p>یکی از فصل‌ها را انتخاب کن تا درس‌ها، فعالیت‌ها و تمرین‌های آن را جداگانه ببینی.</p></div><span class="book-mark">۸</span></div>
+  <div id="chapters" class="chapter-grid"></div>
+  <div class="empty" id="empty">موردی با این عبارت پیدا نشد.</div>
+ </section>
+ <section id="detailView" hidden>
+  <button class="back-btn" id="backHome">← بازگشت به فهرست فصل‌ها</button>
+  <div class="detail-banner"><span class="kicker">کتابخانه ویدئویی · ریاضی هشتم</span><h2 id="detailTitle"></h2><p id="detailDesc">درس موردنظر را انتخاب کن و فیلم آموزشی آن را ببین.</p></div>
+  <div id="detailLessons"></div>
+ </section>
+</main>
+<footer>
+ <div>گروه آموزشی ریاضی دوره اول متوسطه استان چهارمحال و بختیاری</div>
+ <div style="margin-top:5px">گردآوری، دسته‌بندی و طراحی کتابخانه: مهدی راه‌نما</div>
+ <div style="margin-top:10px"><a href="https://shad.ir/Math_chb" target="_blank" rel="noopener">ورود به کانال شاد گروه ریاضی استان چهارمحال و بختیاری</a>　|　<a href="https://www.rajimath.com" target="_blank" rel="noopener">rajimath.com</a></div>
+</footer>
+<script>
+const chapters = [
+{title:"عددهای صحیح و گویا",lessons:[
+["درس اول: یادآوری عددهای صحیح",[["فعالیت و کاردرکلاس","https://www.aparat.com/v/KGCTB?playlist=543032"]],"تمرین درس اول: صفحه ۵","https://www.aparat.com/v/6u4ot?playlist=543032"],
+["درس دوم: معرفی عددهای گویا",[["فعالیت و کاردرکلاس","https://www.aparat.com/v/r562y96?playlist=543032"]],"تمرین درس دوم: صفحه ۹","https://www.aparat.com/v/l9ZM5?playlist=543032"],
+["درس سوم: جمع و تفریق عددهای گویا",[["فعالیت و کاردرکلاس","https://www.aparat.com/v/o203sk1?playlist=543032"]],"تمرین درس سوم: صفحه ۱۳","https://www.aparat.com/v/76noC?playlist=543032"],
+["درس چهارم: ضرب و تقسیم عددهای گویا",[["فعالیت و کاردرکلاس","https://www.aparat.com/v/r584020?playlist=543032"]],"تمرین درس چهارم: صفحه ۱۷","https://www.aparat.com/v/h41933o?playlist=543032"]
+]},
+{title:"عددهای اول",lessons:[
+["درس اول: یادآوری عددهای اول",[["فعالیت و کاردرکلاس","https://www.aparat.com/v/x8015q3?playlist=543032"]],"تمرین درس اول: صفحه ۲۳","https://www.aparat.com/v/f9242sj?playlist=543032"],
+["درس دوم: تعیین عددهای اول",[["فعالیت و کاردرکلاس","https://www.aparat.com/v/a3546o0?playlist=543032"]],"تمرین درس دوم: صفحه ۲۷","https://www.aparat.com/v/p81t3fl?playlist=543032"]
+]},
+{title:"چندضلعی‌ها",lessons:[
+["درس اول: چندضلعی‌ها و تقارن",[["فعالیت و کاردرکلاس","https://www.aparat.com/v/m78368z?playlist=543032"]],"تمرین درس اول: صفحه ۳۳","https://www.aparat.com/v/V6X79?playlist=543032"],
+["درس دوم: توازی و تعامد",[["فعالیت و کاردرکلاس","https://www.aparat.com/v/h24e6dn?playlist=543032"]],"تمرین درس دوم: صفحه ۳۷","https://www.aparat.com/v/q63a42a?playlist=543032"],
+["درس سوم: چهارضلعی‌ها",[["فعالیت و کاردرکلاس","https://www.aparat.com/v/x921rjl?playlist=543032"]],"تمرین درس سوم: صفحه ۴۱","https://www.aparat.com/v/ne16M?playlist=543032"],
+["درس چهارم: زاویه‌های داخلی",[["فعالیت و کاردرکلاس","https://www.aparat.com/v/n567ayj?playlist=543032"]],"تمرین درس چهارم: صفحه ۴۵","https://www.aparat.com/v/b366bhc?playlist=543032"],
+["درس چهارم: زاویه‌های خارجی",[["فعالیت و کاردرکلاس","https://www.aparat.com/v/p310cc5?playlist=543032"]],"تمرین درس چهارم: صفحه ۴۹","https://www.aparat.com/v/t8922qp?playlist=543032"]
+]},
+{title:"جبر و معادله",lessons:[
+["درس اول: ساده کردن عبارت‌های جبری",[["پارت اول","https://www.aparat.com/v/aQ0i9?playlist=543032"],["پارت دوم","https://www.aparat.com/v/e59s8xr?playlist=543032"]],"تمرین درس اول: صفحه ۵۵","https://www.aparat.com/v/y98f0p6?playlist=543032"],
+["درس دوم: پیدا کردن مقدار یک عبارت جبری",[["فعالیت و کاردرکلاس","https://www.aparat.com/v/r1182i7?playlist=543032"]],"تمرین درس دوم: صفحه ۵۹","https://www.aparat.com/v/m17x5f2?playlist=543032"],
+["درس سوم: تجزیه عبارت‌های جبری",[["پارت اول","https://www.aparat.com/v/a76x3j2?playlist=543032"],["پارت دوم","https://www.aparat.com/v/JBbk9?playlist=543032"]],"تمرین درس سوم: صفحه ۶۳","https://www.aparat.com/v/b21eznm?playlist=543032"],
+["درس چهارم: معادله",[["فعالیت و کاردرکلاس","https://www.aparat.com/v/h00c3q6?playlist=543032"]],"تمرین درس چهارم: صفحه ۶۷","https://www.aparat.com/v/JfY4v?playlist=543032"]
+]},
+{title:"بردار و مختصات",lessons:[
+["درس اول: جمع بردارها",[["فعالیت و کاردرکلاس","https://www.aparat.com/v/p8236y9?playlist=543032"]],"تمرین درس اول: صفحه ۷۳","https://www.aparat.com/v/u12m19w?playlist=543032"],
+["درس دوم: ضرب عدد در بردار",[["فعالیت و کاردرکلاس","https://www.aparat.com/v/j53bvy3?playlist=543032"]],"تمرین درس دوم: صفحه‌های ۷۶ و ۷۷","https://www.aparat.com/v/0hRiu?playlist=543032"],
+["درس سوم: بردارهای واحد مختصات",[["فعالیت و کاردرکلاس","https://www.aparat.com/v/q574533?playlist=543032"]],"تمرین درس سوم: صفحه‌های ۸۰ و ۸۱","https://www.aparat.com/v/r136q4p?playlist=543032"]
+]},
+{title:"مثلث",lessons:[
+["درس اول: رابطه فیثاغورس",[["فعالیت و کاردرکلاس","https://www.aparat.com/v/z58tvz6?playlist=543032"]],"تمرین درس اول: صفحه ۸۷","https://www.aparat.com/v/w0272d9?playlist=543032"],
+["درس دوم: شکل‌های هم‌نهشت",[["فعالیت و کاردرکلاس","https://www.aparat.com/v/n67i04j?playlist=543032"]],"تمرین درس دوم: صفحه ۹۱","https://www.aparat.com/v/e2843po?playlist=543032"],
+["درس سوم: مثلث‌های هم‌نهشت",[["فعالیت و کاردرکلاس","https://www.aparat.com/v/g63M1?playlist=543032"]],"تمرین درس سوم: صفحه ۹۵","https://www.aparat.com/v/f69c861?playlist=543032"],
+["درس چهارم: هم‌نهشتی مثلث‌های قائم‌الزاویه",[["فعالیت و کاردرکلاس","https://www.aparat.com/v/o42evz4?playlist=543032"]],"تمرین درس چهارم: صفحه ۹۹","https://www.aparat.com/v/t078s9n?playlist=543032"]
+]},
+{title:"توان و جذر",lessons:[
+["درس اول: توان",[["فعالیت و کاردرکلاس","https://www.aparat.com/v/k006484?playlist=543032"]],"تمرین درس اول: صفحه‌های ۱۰۴ و ۱۰۵","https://www.aparat.com/v/s33tkds?playlist=543032"],
+["درس دوم: تقسیم اعداد توان‌دار",[["فعالیت و کاردرکلاس","https://www.aparat.com/v/p36289a?playlist=543032"]],"تمرین درس دوم: صفحه‌های ۱۰۸ و ۱۰۹","https://www.aparat.com/v/j6951zm?playlist=543032"],
+["درس سوم: جذر تقریبی",[["فعالیت و کاردرکلاس","https://www.aparat.com/v/g07e24m?playlist=543032"]],"تمرین درس سوم: صفحه‌های ۱۱۲ و ۱۱۳","https://www.aparat.com/v/2tA54?playlist=543032"],
+["درس چهارم و پنجم: نمایش اعداد رادیکالی روی محور، اعداد و خواص ضرب و تقسیم رادیکال‌ها",[["فعالیت و کاردرکلاس","https://www.aparat.com/v/s3956he?playlist=543032"]],"تمرین درس چهارم: صفحه ۱۱۷","https://www.aparat.com/v/a99hj63?playlist=543032"],
+["تمرین ترکیبی: صفحه ۱۱۸",[],"تمرین ترکیبی: صفحه ۱۱۸","https://www.aparat.com/v/w50srn0?playlist=543032"]
+]},
+{title:"آمار و احتمال",lessons:[
+["درس اول: دسته‌بندی داده‌ها",[["فعالیت و کاردرکلاس","https://www.aparat.com/v/t665rx6?playlist=543032"]],"تمرین درس اول: صفحه ۱۲۳","https://www.aparat.com/v/a074g83?playlist=543032"],
+["درس دوم: میانگین داده‌ها",[["فعالیت و کاردرکلاس","https://www.aparat.com/v/u66j7q2?playlist=543032"]],"تمرین درس دوم: صفحه‌های ۱۲۶ و ۱۲۷","https://www.aparat.com/v/k15v996?playlist=543032"],
+["درس سوم: احتمال یا اندازه‌گیری شانس",[["فعالیت و کاردرکلاس","https://www.aparat.com/v/p457542?playlist=543032"]],"تمرین درس سوم: صفحه ۱۳۱","https://www.aparat.com/v/38z94?playlist=543032"],
+["درس چهارم: بررسی حالت‌های ممکن",[["فعالیت و کاردرکلاس","https://www.aparat.com/v/s8935mw?playlist=543032"]],"تمرین درس چهارم: صفحه‌های ۱۳۴ و ۱۳۵","https://www.aparat.com/v/RBdje?playlist=543032"]
+]},
+{title:"دایره",lessons:[
+["درس اول: خط و دایره",[["فعالیت و کاردرکلاس","https://www.aparat.com/v/t6Kbx?playlist=543032"]],"تمرین درس اول: صفحه ۱۴۱","https://www.aparat.com/v/u804nrp?playlist=543032"],
+["درس دوم: زاویه‌های مرکزی",[["فعالیت و کاردرکلاس","https://www.aparat.com/v/BiWX0?playlist=543032"]],"تمرین درس دوم: صفحه ۱۴۵","https://www.aparat.com/v/a31y600?playlist=543032"],
+["درس سوم: زاویه‌های محاطی",[["فعالیت و کاردرکلاس","https://www.aparat.com/v/f1490pq?playlist=543032"]],"تمرین درس سوم: صفحه‌های ۱۴۸ و ۱۴۹","https://www.aparat.com/v/s94aj21?playlist=543032"]
+]}
+];
+
+
+const root=document.getElementById('chapters');
+const homeView=document.getElementById('homeView');
+const detailView=document.getElementById('detailView');
+const detailTitle=document.getElementById('detailTitle');
+const detailLessons=document.getElementById('detailLessons');
+const persianNums=['۱','۲','۳','۴','۵','۶','۷','۸','۹'];
+const accents=[
+ ['#e2f4ef','#137b70'],['#e5efff','#285d9a'],['#fff0df','#a66a17'],
+ ['#eee9ff','#6548a5'],['#e4f5f8','#19788a'],['#fce8ef','#a34469'],
+ ['#f2eddf','#80651c'],['#e5edfa','#355d9a'],['#e7f4e5','#3b7b43']
+];
+chapters.forEach((chapter,i)=>{
+ const card=document.createElement('button');
+ card.type='button';card.className='chapter-card';
+ card.style.setProperty('--accent',accents[i][0]);
+ card.style.setProperty('--deep',accents[i][1]);
+ card.innerHTML=`<div class="card-top"><span class="card-number">${persianNums[i]}</span><span class="card-arrow">←</span></div>
+ <h3>فصل ${['اول','دوم','سوم','چهارم','پنجم','ششم','هفتم','هشتم','نهم'][i]}</h3>
+ <p>${chapter.title}</p><span class="card-count">${persianNums[chapter.lessons.length]} عنوان آموزشی و تمرینی</span>`;
+ card.addEventListener('click',()=>showChapter(i));
+ root.appendChild(card);
+});
+function resourceLink(title,url,kind,sub){
+  return `<a class="resource ${kind}" href="${url}" target="_blank" rel="noopener">
+  <span class="ico">${kind==='activity'?'▶':'✎'}</span>
+  <span><strong>${title}</strong><small>${sub}</small></span><span class="arrow">↗</span></a>`;
+}
+function showChapter(index){
+  const chapter=chapters[index];
+  detailTitle.textContent=`فصل ${['اول','دوم','سوم','چهارم','پنجم','ششم','هفتم','هشتم','نهم'][index]}: ${chapter.title}`;
+  detailLessons.innerHTML='';
+  chapter.lessons.forEach((lesson,j)=>{
+    const row=document.createElement('section');row.className='lesson';
+    const activities=lesson[1].length
+      ? lesson[1].map((item,k)=>resourceLink(item[0],item[1],'activity',lesson[1].length>1?'مشاهده فیلم آموزشی · '+item[0]:'مشاهده فیلم آموزشی موضوع درس')).join('')
+      : '';
+    const exercise=lesson[3]
+      ? resourceLink(lesson[2],lesson[3],'exercise','مشاهده فیلم حل تمرین کتاب')
+      : `<div class="resource exercise"><span class="ico">✎</span><span><strong>${lesson[2]}</strong><small>در فایل منبع برای این بخش پیوند جداگانه تمرین درج نشده است.</small></span></div>`;
+    row.innerHTML=`<div class="lesson-head">${lesson[0]}</div><div class="resources">
+      ${activities}${exercise}
+    </div>`;
+    detailLessons.appendChild(row);
+  });
+  homeView.hidden=true;detailView.hidden=false;
+  document.getElementById('search').value='';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+document.getElementById('backHome').onclick=()=>{
+ detailView.hidden=true;homeView.hidden=false;
+ window.scrollTo({top:document.querySelector('.toolbar').offsetTop-10,behavior:'smooth'});
+};
+document.getElementById('search').addEventListener('input',e=>{
+ const q=e.target.value.trim().toLocaleLowerCase('fa');let visible=0;
+ document.querySelectorAll('.chapter-card').forEach((card,i)=>{
+  const match=(chapters[i].title+' فصل '+persianNums[i]).toLocaleLowerCase('fa').includes(q);
+  card.style.display=match?'':'none';if(match)visible++;
+ });
+ document.getElementById('empty').style.display=visible?'none':'block';
+});
+</script>
+</body>
+</html>
